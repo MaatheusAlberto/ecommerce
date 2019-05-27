@@ -18,7 +18,7 @@ class User extends Model{
 			":LOGIN"=>$login
 		));
 
-		if (count ($results) === 0)
+		if (count($results) === 0)
 		{
 			throw new \Exception("Usuario inexistente ou senha invalida.");
 		}
@@ -50,8 +50,7 @@ class User extends Model{
 		 	!(int)$_SESSION[User::SESSION]["iduser"] > 0
 		 	||
 		 	(bool)$_SESSION[User::SESSION]["inadmin"] !== $inadmin
-		)
-		{
+		){
 			header("Location:/admin/login");
 			exit;
 		}
@@ -60,6 +59,33 @@ class User extends Model{
 	public static function logout()
 	{
 		$_SESSION[User::SESSION] = NULL;
+	}
+
+	public static function listAll()
+	{
+
+		$sql = new Sql();
+
+		return $sql->select("SELECT * FROM tb_users a INNER JOIN tb_persons b USING(idperson) ORDER BY b.desperson");
+	}
+
+	public function save()
+	{
+		$sql = new Sql();
+
+		$results = $sql->select("CALL sp_users_save(:desperson, :deslogin, :despassword, :desemail, :nrphone, :inadmin )", array(
+			":desperson"=>$this->getdesperson(),
+			":deslogin"=>$this->getdeslogin(),
+			":despassword"=>$this->getdespassword(),
+			":desemail"=>$this->getdesemail(),
+			":nrphone"=>$this->getnrphone(),
+			":inadmin"=>$this->getinadmin()
+
+		));
+
+
+		$this->setData($results[0]);
+
 	}
 
 }
