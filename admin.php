@@ -100,8 +100,8 @@ $app->post("/admin/forgot/reset", function(){
 
 	$forgot = User::validForgotDecrypt($_POST["code"]);
 
-	User::setForgotUserd($forgot["idrecovery"]);
-
+	User::setFogotUsed($forgot["idrecovery"]);
+	
 	$user = new User();
 
 	$user->get((int)$forgot["iduser"]);
