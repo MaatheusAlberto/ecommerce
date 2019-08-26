@@ -1,48 +1,47 @@
-<?php if(!class_exists('Rain\Tpl')){exit;}?>
-    <div class="slider-area">
-        	<!-- Slider -->
-			<div class="block-slider block-slider4">
-				<ul class="" id="bxslider-home4">
-					<li>
-						<img src="/res/site/img/h4-slide.png" alt="Slide">
-						<div class="caption-group">
-							<h2 class="caption title">
-								iPhone <span class="primary">6 <strong>Plus</strong></span>
-							</h2>
-							<h4 class="caption subtitle">Dual SIM</h4>
-							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
-						</div>
-					</li>
-					<li><img src="/res/site/img/h4-slide2.png" alt="Slide">
-						<div class="caption-group">
-							<h2 class="caption title">
-								by one, get one <span class="primary">50% <strong>off</strong></span>
-							</h2>
-							<h4 class="caption subtitle">school supplies & backpacks.*</h4>
-							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
-						</div>
-					</li>
-					<li><img src="/res/site/img/h4-slide3.png" alt="Slide">
-						<div class="caption-group">
-							<h2 class="caption title">
-								Apple <span class="primary">Store <strong>Ipod</strong></span>
-							</h2>
-							<h4 class="caption subtitle">Select Item</h4>
-							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
-						</div>
-					</li>
-					<li><img src="/res/site/img/h4-slide4.png" alt="Slide">
-						<div class="caption-group">
-						  <h2 class="caption title">
-								Apple <span class="primary">Store <strong>Ipod</strong></span>
-							</h2>
-							<h4 class="caption subtitle">& Phone</h4>
-							<a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<!-- ./Slider -->
+<?php if(!class_exists('Rain\Tpl')){exit;}?><div class="slider-area">
+            <!-- Slider -->
+            <div class="block-slider block-slider4">
+                <ul class="" id="bxslider-home4">
+                    <li>
+                        <img src="/res/site/img/h4-slide.png" alt="Slide">
+                        <div class="caption-group">
+                            <h2 class="caption title">
+                                iPhone <span class="primary">6 <strong>Plus</strong></span>
+                            </h2>
+                            <h4 class="caption subtitle">Dual SIM</h4>
+                            <a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
+                        </div>
+                    </li>
+                    <li><img src="/res/site/img/h4-slide2.png" alt="Slide">
+                        <div class="caption-group">
+                            <h2 class="caption title">
+                                by one, get one <span class="primary">50% <strong>off</strong></span>
+                            </h2>
+                            <h4 class="caption subtitle">school supplies & backpacks.*</h4>
+                            <a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
+                        </div>
+                    </li>
+                    <li><img src="/res/site/img/h4-slide3.png" alt="Slide">
+                        <div class="caption-group">
+                            <h2 class="caption title">
+                                Apple <span class="primary">Store <strong>Ipod</strong></span>
+                            </h2>
+                            <h4 class="caption subtitle">Select Item</h4>
+                            <a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
+                        </div>
+                    </li>
+                    <li><img src="/res/site/img/h4-slide4.png" alt="Slide">
+                        <div class="caption-group">
+                          <h2 class="caption title">
+                                Apple <span class="primary">Store <strong>Ipod</strong></span>
+                            </h2>
+                            <h4 class="caption subtitle">& Phone</h4>
+                            <a class="caption button-radius" href="#"><span class="icon"></span>Comprar</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <!-- ./Slider -->
     </div> <!-- End slider area -->
     
     <div class="promo-area">
@@ -85,7 +84,7 @@
                     <div class="latest-product">
                         <h2 class="section-title">Produtos</h2>
                         <div class="product-carousel">
-                        	<?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
+                            <?php $counter1=-1;  if( isset($products) && ( is_array($products) || $products instanceof Traversable ) && sizeof($products) ) foreach( $products as $key1 => $value1 ){ $counter1++; ?>
                             <div class="single-product">
                                 <div class="product-f-image">
                                     <img src="<?php echo htmlspecialchars( $value1["desphoto"], ENT_COMPAT, 'UTF-8', FALSE ); ?>" alt="">
@@ -102,7 +101,7 @@
                                 </div> 
                             </div>
                             <?php } ?>
- 						</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -130,4 +129,3 @@
             </div>
         </div>
     </div> <!-- End brands area -->
-        

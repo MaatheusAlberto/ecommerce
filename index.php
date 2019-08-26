@@ -5,10 +5,6 @@ session_start();
 require_once("vendor/autoload.php");
 
 use \Slim\Slim;
-use \code\Page;
-use \code\PageAdmin;
-use \code\Model\User;
-use \code\Model\Category;
 
 $app = new Slim();
 
@@ -20,6 +16,12 @@ require_once ("admin.php");
 require_once ("admin-users.php");
 require_once ("admin-categories.php");
 require_once ("admin-products.php");
+require_once ("admin-orders.php");
+require_once ("site-pagseguro.php");
+require_once ("site-cart.php");
+require_once ("site-checkout.php");
+require_once ("site-login.php");
+require_once ("site-profile.php");
 
 
 

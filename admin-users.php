@@ -8,12 +8,39 @@ $app->get("/admin/users", function(){
 
 	User::verifyLogin();
 
-	$users = User::listAll();
+	$search = (isset($_GET['search'])) ? $_GET['search'] : "";
+	$page = (isset($_GET['page'])) ? (int)$_GET['page'] : 1;
+
+	if ($search != '')
+	{
+
+		$pagination = User::getPageSearch($search, $page);		
+
+	}else{
+
+		$pagination = User::getpage($page);
+
+	}
+
+	$pages = [];
+
+	for($x = 0; $x < $pagination['pages']; $x++)
+	{
+		array_push($pages, [
+			'href'=>'/admin/users?' .http_build_query([
+				'page'=>$x+1,
+				'search'=>$search
+			]),
+			'text'=>$x+1
+		]);
+	}
 
 	$page = new PageAdmin();
 
 	$page->setTpl("users", array(
-		"users"=>$users
+		"users"=>$pagination['data'],
+		"search"=>$search,
+		"pages"=>$pages
 	));
 
 });
@@ -33,7 +60,7 @@ $app->get("/admin/users/:iduser/delete", function($iduser){
 	User::verifyLogin();
 
 	$user = new User();
-
+	
 	$user->get((int)$iduser);
 
 	$user->delete();
@@ -67,7 +94,10 @@ $app->post("/admin/users/create", function(){
 	$user = new User();
 
 	$_POST["inadmin"] = (isset($_POST["inadmin"]))?1:0;
+	$_POST['despassword'] = password_hash($_POST["despassword"], PASSWORD_DEFAULT, [
 
+"cost"=>12
+]);
 	$user->setData($_POST);
 
 	$user->save();
