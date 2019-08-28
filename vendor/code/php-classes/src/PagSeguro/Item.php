@@ -35,10 +35,10 @@ class Item {
 			throw new Exception("Informe a quantidade do item.");
 		}
 
-		$this->$id = $id;
-		$this->$description = $description;
-		$this->$amount = $amount;
-		$this->$quantity = $quantity;
+		$this->id = $id;
+		$this->description = $description;
+		$this->amount = $amount;
+		$this->quantity = $quantity;
 
 	}
 

@@ -100,7 +100,7 @@ class Payment {
 
 		$method = $dom->createElement("method", $this->method);
 		$method = $payment->appendChild($method);
-
+		
 		switch($this->method)
 		{
 			case Method::CREDIT_CARD:
@@ -115,8 +115,6 @@ class Payment {
 			$bank = $payment->appendChild($bank);
 			break;
 		}
-
-		
 
 
 		return $dom;

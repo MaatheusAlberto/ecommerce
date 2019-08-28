@@ -459,6 +459,49 @@
             return true;
         }
 
+        $("#form-debit").on("submit", function(e){
+
+            e.preventDefault();
+
+            if (!isValidCPF($("#form-debit [name=cpf]").val())){
+
+                showError("Este número de CPF não é válido.");
+                return false;
+            }
+
+            var formData = $(this).serializeArray();
+
+            var params = {};
+
+            $.each(formData, function(index, field){
+
+                params[field.name] = field.value;
+
+            });
+
+            params.hash = PagSeguroDirectPayment.getSenderHash();
+
+                $.post(
+                        "/payment/debit",
+                        $.param(params),
+                        function(r){
+
+                            var response = JSON.parse(r);
+                            
+                            if(response.success)
+                            {
+                                window.location.href = "/payment/success/debit";
+                            }else{
+
+                                showError("Não foi possível efetuar o pagamento.");
+
+                            }
+                        }
+                    );
+
+            });
+
+
         $("#form-boleto").on("submit", function(e){
 
             e.preventDefault();

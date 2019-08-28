@@ -4,6 +4,7 @@ namespace code\PagSeguro;
 
 use \GuzzleHttp\Client;
 use code\Model\Order;
+use Exception;
 
 class Transporter 
 {
@@ -38,8 +39,6 @@ class Transporter
 
 		$xml = simplexml_load_string($response->getBody()->getContents()); # '{"id": 1420053, "name": "guzzle", ...}'
 
-		var_dump($xml);
-
 		$order = new Order();
 
 		$order->get((int) $xml->reference);
@@ -62,3 +61,4 @@ class Transporter
 }
 
 ?>
+

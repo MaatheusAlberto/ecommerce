@@ -71,7 +71,7 @@ class Address {
 
 		$dom = new DOMDocument();
 
-		$address = $dom->createElement("$node");
+		$address = $dom->createElement($node);
 		$address = $dom->appendChild($address);
 
 		$street = $dom->createElement("street", $this->street);
@@ -79,14 +79,14 @@ class Address {
 
 		$number = $dom->createElement("number", $this->number);
 		$number = $address->appendChild($number);
-
+		
 		$complement = $dom->createElement("complement", $this->complement);
 		$complement = $address->appendChild($complement);
 
 		$district = $dom->createElement("district", $this->district);
 		$district = $address->appendChild($district);
 
-		$city = $dom->createElement("city", $this->city);
+		$city = $dom->createElement("city", utf8_encode($this->city));
 		$city = $address->appendChild($city);
 
 		$state = $dom->createElement("state", $this->state);
@@ -97,7 +97,7 @@ class Address {
 
 		$postalCode = $dom->createElement("postalCode", $this->postalCode);
 		$postalCode = $address->appendChild($postalCode);
-
+		
 		return $address;
 
 	}
